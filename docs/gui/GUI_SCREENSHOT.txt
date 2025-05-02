@@ -1,0 +1,42 @@
++-------------------------------------------------------------------------------------------------------+
+|  Kernel Analyzer                                                                           [_] [■] [X]  |
++-------------------------------------------------------------------------------------------------------+
+| [Open Kernel] File Type: [.cl ▼] [Analyze Kernel] [Export Results]                                    |
++-------------------------------------------+-----------------------------------------------------------+
+|                                           |  Summary                                                   |
+| __kernel void matmulUnroll4WithResidual( | +-------------------------------------------------------+ |
+|   __global long *_kernel_context,        | | Kernel Name:         matmulUnroll4WithResidual        | |
+|   __constant uchar *_constant_region,    | | Primary Bottleneck:  COMPUTE                          | |
+|   __local uchar *_local_region,          | | Arithmetic Intensity: 4.0833                          | |
+|   __global int *_atomics,                | +-------------------------------------------------------+ |
+|   __global uchar *xout,                  |                                                           |
+|   __global uchar *x,                     |  Operation Statistics                                     |
+|   __global uchar *w,                     | +-------------------------------------------------------+ |
+|   __private int n,                       | | Total Reads:         11                               | |
+|   __private int d,                       | | Total Writes:        1                                | |
+|   __global uchar *positionAndLayer)      | | Compute Operations:  49                               | |
+| {                                        | | Memory Bound Score:  0.2449                           | |
+|   float f_38, f_70, f_33, f_65, f_24;    | | Compute Bound Score: 0.7551                          | |
+|   int i_57, i_59, i_60, i_61, i_66;      | +-------------------------------------------------------+ |
+|   bool b_26, b_42, b_58;                 |                                                           |
+|   long l_30, l_62, l_31, l_63, l_51;     |                                                           |
+|   ulong ul_3, ul_2, ul_1, ul_0, ul_32;   |                 [PIE CHART]        [BAR CHART]           |
+|                                          |                                                           |
+|   // BLOCK 0                             |  Optimization Recommendations                             |
+|   ul_0  =  (ulong) xout;                 | +-------------------------------------------------------+ |
+|   ul_1  =  (ulong) x;                    | | 1. Consider using built-in math functions for better  | |
+|   ul_2  =  (ulong) w;                    | |    performance                                        | |
+|   ul_3  =  (ulong) positionAndLayer;     | | 2. Look for opportunities to use vector operations or | |
+|   ul_4  =  ul_3 + 28L;                   | |    SIMD instructions                                  | |
+|   i_5  =  *((__global int *) ul_4);      | | 3. Check for loop unrolling opportunities to increase | |
+|   i_6  =  i_5 << 24;                     | |    instruction-level parallelism                      | |
+|   i_7  =  i_6 + 6;                       | |                                                       | |
+|   i_8  =  get_global_size(0);            | |                                                       | |
+|   i_9  =  get_global_id(0);              | |                                                       | |
+|   // BLOCK 1 MERGES [0 14 ]              | |                                                       | |
+|   i_10  =  i_9;                          | |                                                       | |
+|   for(;i_10 < 2048;)                     | |                                                       | |
+|   {                                      | |                                                       | |
++-------------------------------------------+-------------------------------------------------------+ |
+| Ready                                                                                               |
++-------------------------------------------------------------------------------------------------------+ 
