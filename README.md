@@ -1,4 +1,4 @@
-# OpenCL Kernel Performance Analyzer
+# Kernel Static Analyzer for TornadoVM
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/python-3.7%2B-blue)](https://www.python.org/downloads/)
