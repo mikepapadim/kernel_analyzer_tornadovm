@@ -6,7 +6,7 @@
 
 A comprehensive static analysis tool for optimizing OpenCL compute kernels. This application helps identify performance bottlenecks, branch divergence issues, data type usage, and expensive operations in compute kernels to improve GPU performance.
 
-![Analyzer Screenshot](docs/images/analyzer_screenshot.png)
+![Analyzer Screenshot](docs/images/home.png)
 
 ## 🚀 Features
 
